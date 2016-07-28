@@ -12,17 +12,21 @@ class applicationTestCase(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_en_url(self):
-        rv = self.app.get('/en',  follow_redirects=True)
-        assert u'hello en' in rv.data
+    # def test_en_url(self):
+    #     rv = self.app.get('/en',  follow_redirects=True)
+    #     assert u'hello en' in rv.data
 
-    def test_tw_url(self):
-        rv = self.app.get('/tw',  follow_redirects=True)
-        assert u'hello tw' in rv.data        
+    # def test_tw_url(self):
+    #     rv = self.app.get('/tw',  follow_redirects=True)
+    #     assert u'hello tw' in rv.data
 
-    def test_tw_about_url(self):
-        rv = self.app.get('/tw/about',  follow_redirects=True)
-        assert u'about tw' in rv.data   
+    # def test_tw_about_url(self):
+    #     rv = self.app.get('/tw/about',  follow_redirects=True)
+    #     assert u'about tw' in rv.data
 
-if __name__ == '__main__':
+    def test_static_file_css(self):
+        rv = self.app.get('static/css/style.css',  follow_redirects=True)
+        print rv
+        assert u'about tw' in rv.data
+if __name__ == '__main__':  # pragma: no cover
     unittest.main()

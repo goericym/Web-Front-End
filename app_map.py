@@ -1,0 +1,2 @@
+from application import application
+print application.url_map
